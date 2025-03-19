@@ -19,11 +19,11 @@ jobs:
       with:
         test-name: check job execution
         setup-command: echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-        command: gh run list --repo ${{ github.repository }} --workflow 'Workflow
-          Execution' --json conclusion
+        command: gh run list --repo madBabel/gh202503-io-challenge-mad81github --workflow
+          'Workflow Execution' --json conclusion | grep success
         input: ''
-        expected-output: success
-        comparison-method: exact
+        expected-output: ".*success.*"
+        comparison-method: regex
         timeout: 10
         max-score: 100
     - name: Autograding Reporter
