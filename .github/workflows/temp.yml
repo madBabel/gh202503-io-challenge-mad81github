@@ -1,0 +1,18 @@
+name: Working with Environments
+on:
+    workflow_dispatch:
+        inputs:
+            target-env:
+                description: Entorno
+                type: environment
+                default: pre
+run-name: "Working with Environments | env - ${{inputs.target-env.default}}"
+jobs:
+    echo:
+        runs-on: ubuntu_latest
+        environment: ${{inputs.target-env}}
+
+
+        steps:
+            - name: Echo vars
+              run: echo "Env variable ${{inputs.target-env}}"
