@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: check job execution
-        setup-command: ''
+        setup-command: gh auth login
         command: gh run list --repo ${{ github.repository }} --workflow 'Workflow
           Execution' --json conclusion
         input: ''
